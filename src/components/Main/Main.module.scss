@@ -1,0 +1,55 @@
+@import "./../../_theme/colors.scss";
+
+.main {
+  position: relative;
+  width: 100%;
+}
+
+.main__container {
+  width: 1200px;
+  margin: 60px auto;
+  columns: 4;
+  column-gap: 20px;
+}
+
+.main__description {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.main__container .main__box {
+  width: 100%;
+  margin: 0 0 20px 20px;
+  padding: 10px;
+  background-color: $COLOR_LIGHT;
+  overflow: hidden;
+}
+
+.main__container .main__box img {
+  max-width: 100%;
+}
+
+.main__box button {
+  background-color: $COLOR_LIGHT;
+  background-image: url(../../assets/img/nolike.svg);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 1.7rem;
+  border: none;
+  cursor: pointer;
+
+  margin-bottom: 10px;
+  padding-left: 2rem;
+  text-align: center;
+}
+
+.main__liked_false {
+  background-image: url(../../assets/img/liked.svg);
+}
+
+.main__moreCats {
+  margin: 3rem auto 7rem;
+
+}

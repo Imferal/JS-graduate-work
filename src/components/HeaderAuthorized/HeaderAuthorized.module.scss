@@ -1,0 +1,27 @@
+@import "./../../_theme/colors.scss";
+
+.header {
+  &__wrapper {
+    background-color: $COLOR_DARK;
+    border-bottom: $COLOR_LIGHT;
+    padding: 0.5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+  }
+
+  &__loginText {
+    color: $COLOR_PRIMARY;
+  }
+
+  // &__loginButton {}
+}
