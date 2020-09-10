@@ -6,7 +6,7 @@ export default function Header (props) {
   const unsplash = new Unsplash ({
     accessKey: props.state.security.ACCESS_KEY,
     secret: props.state.security.SECRET,
-    callbackUrl: 'http://localhost:3000/auth',
+    callbackUrl: props.state.security.CALLBACK_URL,
   });
 
   const authenticationUrl = unsplash.auth.getAuthenticationUrl ([
@@ -20,8 +20,9 @@ export default function Header (props) {
   return (
     <header className={s.header__wrapper}>
       <div className={s.header__body}>
+        <p>Вы не вошли в систему</p>
         <button className={s.header__loginButton} onClick={login}>
-          login
+          Войти
         </button>
       </div>
     </header>

@@ -6,10 +6,12 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import {Route, BrowserRouter} from 'react-router-dom';
 
-import MainContainer from '../Main/MainContainer';
+import Main from '../Main/Main';
 import MainAuthorizedContainer from '../MainAuthorized/MainAuthorizedContainer';
 import HeaderAuthorizedContainer
   from '../HeaderAuthorized/HeaderAuthorizedContainer';
+
+// debugger;
 
 export default function App (props) {
   // debugger;
@@ -24,6 +26,7 @@ export default function App (props) {
             <Header state={props.state} dispatch={props.dispatch} />
           )}
         />
+
         <Route
           path="/auth"
           render={() => (
@@ -34,14 +37,8 @@ export default function App (props) {
           )}
         />
 
-        {/* <Header state={props.state} dispatch={props.dispatch} /> */}
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <MainContainer state={props.state} dispatch={props.dispatch} />
-          )}
-        />
+        <Route exact path="/" render={() => <Main state={props.state} />} />
+
         <Route
           path="/auth"
           render={() => (
@@ -51,6 +48,7 @@ export default function App (props) {
             />
           )}
         />
+
         <Footer />
       </div>
     </BrowserRouter>
