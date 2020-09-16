@@ -1,24 +1,60 @@
+import Cookies from 'universal-cookie';
+
 // action names
-const SET_ACCESS_TOKEN = 'SET_ACCESS_TOKEN';
+// const SET_ACCESS_TOKEN = 'SET_ACCESS_TOKEN';
+const FETCH_BEARER_TOKEN = 'FETCH_BEARER_TOKEN';
 const SET_BEARER_TOKEN = 'SET_BEARER_TOKEN';
 const FETCH_PHOTOS_REQUEST = 'FETCH_PHOTOS_REQUEST';
 const FETCH_PHOTOS_SUCCESS = 'FETCH_PHOTOS_SUCCESS';
 const FETCH_GREET_PHOTO_SUCCESS = 'FETCH_GREET_PHOTO_SUCCESS';
+const FETCH_USER_NAME = 'FETCH_USER_NAME';
 const CHANGE_PHOTO_INFO = 'CHANGE_PHOTO_INFO';
+const SET_USER_NAME = 'SET_USER_NAME';
+const LOAD_COOKIE = 'LOAD_COOKIE';
+
+const cookies = new Cookies ();
 
 // actions
 const reducer = (state, action) => {
   switch (action.type) {
+    case FETCH_USER_NAME: {
+      state.usernameIsFetching = true;
+      return state;
+    }
+
+    case SET_USER_NAME: {
+      debugger;
+      state.username = action.name;
+      state.usernameIsFetching = false;
+      cookies.set ('user', state.username, {
+        sameSite: 'None',
+        secure: true,
+      });
+      return state;
+    }
     // Получаем код доступа из url
-    case SET_ACCESS_TOKEN: {
-      state.security.ACCESS_TOKEN = window.location.search.split ('code=')[1];
-      state.security.ACCESS_TOKEN_ISLOADED = true;
+    // case SET_ACCESS_TOKEN: {
+    //   state.security.ACCESS_TOKEN_ISLOADED = true;
+    //   cookies.set ('accessToken', action.accessToken, {
+    //     sameSite: 'None',
+    //     secure: true,
+    //   });
+    //   return state;
+    // }
+
+
+    case FETCH_BEARER_TOKEN: {
+      state.security.BEARER_TOKEN_ISFETCHIG = true;
       return state;
     }
 
     case SET_BEARER_TOKEN: {
-      state.security.BEARER_TOKEN = action.bearerToken;
       state.security.BEARER_TOKEN_ISLOADED = true;
+      debugger;
+      cookies.set ('bearerToken', action.bearerToken, {
+        sameSite: 'None',
+        secure: true,
+      });
       return state;
     }
     // Загружаем приветственную фотку
@@ -53,7 +89,11 @@ const reducer = (state, action) => {
         }
         return photo;
       });
-      // debugger;
+      return state;
+    }
+
+    case LOAD_COOKIE: {
+      state.cookieIsLoaded = true;
       return state;
     }
 
@@ -67,7 +107,14 @@ export const fetchGreetPhotoSuccessAC = photo => ({
   photo,
 });
 
-export const setAccessTokenAC = () => ({type: SET_ACCESS_TOKEN});
+export const fetchUsernameAC = () => ({type: FETCH_USER_NAME});
+
+export const setUserNameAC = name => ({
+  type: SET_USER_NAME,
+  name,
+});
+// export const setAccessTokenAC = () => ({type: SET_ACCESS_TOKEN, accessToken});
+export const fetchBearerTokenAC = () => ({type: FETCH_BEARER_TOKEN});
 export const setBearerTokenAC = bearerToken => ({
   type: SET_BEARER_TOKEN,
   bearerToken,
@@ -83,6 +130,8 @@ export const changePhotoInfoAC = json => ({
   type: CHANGE_PHOTO_INFO,
   json,
 });
+
+export const loadCookieAC = () => ({type: LOAD_COOKIE});
 
 export default reducer;
 

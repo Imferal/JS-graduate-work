@@ -1,43 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import store from './redux/store';
-
-// import './assets/fonts/Geneva/GenevaBold.ttf';
-// import './assets/fonts/Geneva/GenevaRegular.ttf';
-import './assets/fonts/Fira_Sans/FiraSans-Light.ttf';
-
-// import Unsplash, {toJson} from 'unsplash-js';
-// import {
-//   fetchPhotosRequestAC,
-//   // fetchPhotosSuccessAC,
-//   fetchGreetPhotoSuccessAC,
-// } from './redux/reducer';
-
-import './index.scss';
-
 import App from './components/App/App';
-
-// const unsplash = new Unsplash ({
-//   accessKey: store.getState ().security.ACCESS_KEY,
-// });
-
-// store.dispatch (fetchPhotosRequestAC ());
-
-// const p = new Promise (function (resolve, reject) {
-//   unsplash.photos.getPhoto ('1l2waV8glIQ').then (toJson).then (json => {
-//     let result = json;
-//     resolve (result);
-//   });
-// });
-
-// p.then (
-//   result => {
-//     store.dispatch (fetchGreetPhotoSuccessAC (result));
-//   },
-//   error => {
-//     alert ('Rejected: ' + error);
-//   }
-// );
+import './assets/fonts/Fira_Sans/FiraSans-Light.ttf';
+import './index.scss';
 
 let rerender = state => {
   ReactDOM.render (
@@ -56,21 +22,6 @@ store.subscribe (() => {
   let state = store.getState ();
   rerender (state);
 });
-
-//
-//
-//
-//
-//
-//
-
-//
-//
-//
-//
-//
-//
-//
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

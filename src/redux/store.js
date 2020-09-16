@@ -4,12 +4,14 @@ const {createStore} = require ('redux');
 
 const initialState = {
   security: {
-    ACCESS_KEY: 'ibjObXQdFjmUQ7ZfkgOkBMga42B9_ZjlZnCVn-Gytxg',
-    SECRET: '5aMPjjFaQbnF_rseQj80B_eAiD9g0QldggR93EVWhgc',
-    CALLBACK_URL: 'http://localhost:3000/auth',
-    ACCESS_TOKEN: '',
-    BEARER_TOKEN: '',
-    ACCESS_TOKEN_ISLOADED: false,
+    //   ACCESS_KEY: 'ibjObXQdFjmUQ7ZfkgOkBMga42B9_ZjlZnCVn-Gytxg',
+    //   SECRET: '5aMPjjFaQbnF_rseQj80B_eAiD9g0QldggR93EVWhgc',
+    //   CALLBACK_URL: 'http://localhost:3000/auth',
+    //   ACCESS_TOKEN: '',
+    //   BEARER_TOKEN: '',
+    // ACCESS_TOKEN_ISFETCHING: false,
+    // ACCESS_TOKEN_ISLOADED: false,
+    BEARER_TOKEN_ISFETCHING: false,
     BEARER_TOKEN_ISLOADED: false,
   },
   serverData: {
@@ -20,9 +22,11 @@ const initialState = {
     greetPhotoisLoaded: false,
     results: {},
   },
+  cookieIsLoaded: false,
   galleryIsLoaded: false,
   galleryIsFetching: false,
-  userLogin: 'Anonimous',
+  username: '',
+  usernameIsFetching: false,
 };
 
 let store = createStore (reducer, initialState);
