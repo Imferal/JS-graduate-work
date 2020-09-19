@@ -20,7 +20,7 @@ const initialState = {
       description: 'black and white cat lying on brown bamboo chair inside room',
     },
     greetPhotoisLoaded: false,
-    results: {},
+    results: [],
   },
   cookieIsLoaded: false,
   galleryIsLoaded: false,

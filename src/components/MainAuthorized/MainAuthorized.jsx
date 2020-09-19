@@ -1,14 +1,28 @@
 import React from 'react';
+import MasonryInfiniteScroller from 'react-masonry-infinite';
 import s from './MainAuthorized.module.scss';
 
 const MainAuthorized = props => {
+  debugger;
   return (
-    <main className={s.main}>
-      <div className={s.main__container}>
+    <main>
+      <MasonryInfiniteScroller
+        className={s.main__container}
+        position={false}
+        useWindow={false}
+        hasMore={false}
+        loadMore={props.fetchMoreData}
+        sizes={[
+          {columns: 1, gutter: 20},
+          {mq: '768px', columns: 2, gutter: 20},
+          {mq: '1024px', columns: 3, gutter: 20},
+        ]}
+      >
 
-        {props.images}
+        {props.photos}
 
-      </div>
+      </MasonryInfiniteScroller>
+
       <button className={s.main__moreCats}>More cats!</button>
     </main>
   );

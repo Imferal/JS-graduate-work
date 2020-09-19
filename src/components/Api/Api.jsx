@@ -30,6 +30,7 @@ export const login = () => {
 };
 
 export default function Api (props) {
+  // debugger;
   // Если не авторизованы и нет сохранения в куках - видим заставку
   // Если не авторизован и есть куки - автоматически авторизуемся
   if (
@@ -45,12 +46,6 @@ export default function Api (props) {
   }
 
   // Если авторизованы, но нет Bearer Token в unsplash и куках
-  console.log (window.location.search.split ('code=')[1]);
-  console.log (cookies.get ('bearerToken'));
-  console.log (props.state.security.BEARER_TOKEN_ISFETCHING);
-  console.log (props.state.security.BEARER_TOKEN_ISLOADED);
-  console.log (unsplash._bearerToken);
-
   if (
     window.location.search.split ('code=')[1] &&
     unsplash._bearerToken === null &&
@@ -71,7 +66,6 @@ export default function Api (props) {
 
   // Если авторизованы, нет Bearer Token в unsplash, но есть в куках
   if (
-    // window.location.search.split ('code=')[1] !== undefined &&
     window.location.search.split ('code=')[1] &&
     unsplash._bearerToken === null &&
     cookies.get ('bearerToken') &&
@@ -83,6 +77,7 @@ export default function Api (props) {
   }
 
   // Если авторизованы и всё есть - подгружаем фотографии и имя пользователя
+  // debugger;
   if (
     window.location.search.split ('code=')[1] &&
     props.state.security.BEARER_TOKEN_ISLOADED === true &&
@@ -95,6 +90,7 @@ export default function Api (props) {
     });
     props.dispatch (fetchPhotosRequestAC ());
     unsplash.search.photos ('cats', 1).then (res => res.json ()).then (json => {
+      console.log (json);
       props.dispatch (fetchPhotosSuccessAC (json));
     });
   }
