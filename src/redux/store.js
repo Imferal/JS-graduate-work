@@ -16,8 +16,10 @@ const initialState = {
     results: [],
   },
   cookieIsLoaded: false,
-  galleryIsLoaded: false,
   galleryIsFetching: false,
+  galleryIsLoaded: false,
+  photos: [],
+  photosIsLoaded: false,
   username: '',
   usernameIsFetching: false,
 };

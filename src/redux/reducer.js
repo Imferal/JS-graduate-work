@@ -69,6 +69,7 @@ const reducer = (state, action) => {
     }
     case SET_PHOTOS: {
       state.photos = action.photos;
+      state.photosIsLoaded = true;
       return state;
     }
     // Сохраняем изиенённую информацию о фото в стейт

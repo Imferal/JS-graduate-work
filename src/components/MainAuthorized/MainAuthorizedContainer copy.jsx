@@ -47,7 +47,6 @@ const MainAuthorizedContainer = props => {
 
   if (
     props.state.galleryIsLoaded === true &&
-    props.state.photosIsLoaded === false &&
     props.state.galleryIsFetching === false // Возможно, лишнее
   ) {
     photos = props.state.serverData.results.map ((e, i) => (
@@ -70,6 +69,10 @@ const MainAuthorizedContainer = props => {
       </li>
     ));
     props.dispatch (setPhotosAC (photos));
+  } else {
+    photos = [
+      `<img src=${props.state.serverData.greetPhoto.url} alt=${props.state.serverData.greetPhoto.description} />`,
+    ];
   }
 
   return (
