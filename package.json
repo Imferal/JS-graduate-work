@@ -9,13 +9,10 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-masonry-component": "^6.2.1",
     "react-masonry-infinite": "^1.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
-    "react-unsplash-wrapper": "^1.1.5",
     "redux": "^4.0.5",
-    "save": "^2.4.0",
     "universal-cookie": "^4.0.3",
     "unsplash-js": "^6.0.0"
   },

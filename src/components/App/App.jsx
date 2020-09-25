@@ -2,11 +2,12 @@ import React from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import {Route, BrowserRouter} from 'react-router-dom';
-import Main from '../Main/Main';
-import MainAuthorizedContainer from '../MainAuthorized/MainAuthorizedContainer';
+import Login from '../Login/Login';
+import GalleryContainer from '../Gallery/GalleryContainer';
 import HeaderAuthorizedContainer
   from '../HeaderAuthorized/HeaderAuthorizedContainer';
 import Api from '../Api/Api';
+import Viewer from '../Viewer/Viewer';
 
 export default function App (props) {
   return (
@@ -26,14 +27,16 @@ export default function App (props) {
           />
         )}
       />
-      <Route exact path="/" render={() => <Main state={props.state} />} />
+      <Route exact path="/" render={() => <Login state={props.state} />} />
       <Route
+        path="/auth/viewer/"
+        render={() => <Viewer state={props.state} />}
+      />
+      <Route
+        exact
         path="/auth"
         render={() => (
-          <MainAuthorizedContainer
-            state={props.state}
-            dispatch={props.dispatch}
-          />
+          <GalleryContainer state={props.state} dispatch={props.dispatch} />
         )}
       />
       <Footer />

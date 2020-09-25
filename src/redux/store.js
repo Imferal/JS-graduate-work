@@ -1,29 +1,33 @@
-import reducer from './reducer';
+import {combineReducers, createStore} from 'redux';
+import apiReducer from './apiReducer';
+import dataReducer from './dataReducer';
+import userReducer from './userReducer';
 
-const {createStore} = require ('redux');
+let reducers = combineReducers ({
+  api: apiReducer,
+  data: dataReducer,
+  user: userReducer,
+});
 
-const initialState = {
-  security: {
-    BEARER_TOKEN_ISFETCHING: false,
-    BEARER_TOKEN_ISLOADED: false,
-  },
-  serverData: {
-    greetPhoto: {
-      url: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80',
-      description: 'black and white cat lying on brown bamboo chair inside room',
-    },
-    greetPhotoisLoaded: false,
-    results: [],
-  },
-  cookieIsLoaded: false,
-  galleryIsFetching: false,
-  galleryIsLoaded: false,
-  photos: [],
-  photosIsLoaded: false,
-  username: '',
-  usernameIsFetching: false,
-};
+// const initialState = {
+//   api: {
+//     BEARER_TOKEN_ISFETCHING: false,
+//     BEARER_TOKEN_ISLOADED: false,
+//     COOKIE_ISLOADED: false,
+//   },
+//   data: {
+//     jsx: [],
+//     results: [],
+//     JSX_ISLOADED: false,
+//     SERVERDATA_ISFETCHING: false,
+//     SERVERDATA_ISLOADED: false,
+//   },
+//   user: {
+//     username: '',
+//     USERNAME_ISFETCHING: false,
+//   },
+// };
 
-let store = createStore (reducer, initialState);
+let store = createStore (reducers);
 
 export default store;
