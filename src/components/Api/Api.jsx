@@ -28,8 +28,6 @@ export const login = () => {
 };
 
 export default function Api (props) {
-  // debugger;
-
   // Если не авторизован и есть куки - автоматически авторизуемся
   if (
     window.location.toString ().indexOf ('/auth') + 1 === 0 &&
@@ -37,7 +35,6 @@ export default function Api (props) {
     cookies.get ('bearerToken') !== undefined &&
     props.state.api.COOKIE_ISLOADED === false
   ) {
-    // debugger;
     unsplash.auth.setBearerToken (cookies.get ('bearerToken'));
     props.dispatch (setBearerTokenAC (cookies.get ('bearerToken'))); // Устанавливаем флаг загрузки BT
     props.dispatch (loadCookieAC ()); // Устанавливаем флаг загрузки куков

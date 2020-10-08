@@ -1,63 +1,43 @@
 @import "./../../_theme/colors.scss";
 
 .main {
+  margin: 3rem auto;
+  background-color: $COLOR_S_DARK;
   position: relative;
-  // width: 100%;
-}
 
-.main__box {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+  &__item {
+    position: relative;
+    margin: 2%;
+    border-radius: 3px;
+    background-color: $COLOR_LIGHT;
+    border: 1px solid $COLOR_DARK;
+    box-shadow: 0px 0px 6px 2px rgba(rgb(39, 177, 219), 0.2);
 
-.main__container {
-  max-width: 1200px;
-  margin: 60px auto;
-  // columns: 4;
-  // column-gap: 20px;
-}
+    padding: 0 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-.main__description {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  width: 100%;
-}
+  &__img {
+    width: 100%;
+  }
 
-.main__container .main__box {
-  margin: 0 0 20px 0;
-  padding: 10px;
-  background-color: $COLOR_LIGHT;
-  overflow: hidden;
-}
+  &__moreButton {
+    border: 1px solid $COLOR_DARK;
+    border-radius: 50%;
+    background-color: $COLOR_ACTION;
 
-.main__container .main__box img {
-  max-height: 100%;
-  max-width: 100%;
-}
+    top: 3.5rem;
+    right: 0.5rem;
 
-.main__box button {
-  background-color: $COLOR_LIGHT;
-  background-image: url(../../assets/img/liked.svg);
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: 1.7rem;
-  border: none;
-  cursor: pointer;
+    position: fixed;
+    height: 3rem;
+    width: 3rem;
+    text-transform: uppercase;
 
-  margin-bottom: 10px;
-  padding-left: 2rem;
-  text-align: center;
-}
+    cursor: pointer;
 
-.main__box .main__liked_false {
-  background-image: url(../../assets/img/nolike.svg);
-}
-
-.main__moreCats {
-  margin: 3rem auto 7rem;
-
+    z-index: 2;
+  }
 }

@@ -1,17 +1,17 @@
 import React from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import {Route, BrowserRouter} from 'react-router-dom';
+import {Route, BrowserRouter as Router} from 'react-router-dom';
 import Login from '../Login/Login';
 import GalleryContainer from '../Gallery/GalleryContainer';
 import HeaderAuthorizedContainer
   from '../HeaderAuthorized/HeaderAuthorizedContainer';
 import Api from '../Api/Api';
-import Viewer from '../Viewer/Viewer';
+import ViewerContainer from '../Viewer/ViewerContainer';
 
 export default function App (props) {
   return (
-    <BrowserRouter>
+    <Router>
       <Api state={props.state} dispatch={props.dispatch} />
       <Route
         exact
@@ -30,7 +30,9 @@ export default function App (props) {
       <Route exact path="/" render={() => <Login state={props.state} />} />
       <Route
         path="/auth/viewer/"
-        render={() => <Viewer state={props.state} />}
+        render={() => (
+          <ViewerContainer state={props.state} dispatch={props.dispatch} />
+        )}
       />
       <Route
         exact
@@ -40,6 +42,6 @@ export default function App (props) {
         )}
       />
       <Footer />
-    </BrowserRouter>
+    </Router>
   );
 }

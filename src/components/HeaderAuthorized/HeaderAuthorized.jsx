@@ -1,5 +1,7 @@
 import React from 'react';
 import s from './HeaderAuthorized.module.scss';
+import logo from './../../assets/img/logo2.svg';
+import {Link} from 'react-router-dom';
 
 export default function HeaderAuthorized (props) {
   // debugger;
@@ -9,9 +11,10 @@ export default function HeaderAuthorized (props) {
         <div className={s.header__loginText}>
           Meow, {props.state.user.username ? props.state.user.username : ''}!
         </div>
-        <button className={s.header__loginButton} onClick={props.logout}>
+        <img className={s.header__logo} src={logo} alt="Логотип КотоФото" />
+        <Link className={s.header__loginButton} onClick={props.logout} to={'/'}>
           Logout
-        </button>
+        </Link>
       </div>
     </header>
   );

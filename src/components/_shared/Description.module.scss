@@ -1,0 +1,11 @@
+@import "./../../_theme/colors.scss";
+
+.item__description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  color: $COLOR_DARK;
+  width: 100%;
+}

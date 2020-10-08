@@ -4,6 +4,7 @@
   &__wrapper {
     background-color: $COLOR_DARK;
     border-bottom: $COLOR_LIGHT;
+    max-height: 3rem;
     padding: 0.5rem;
     position: fixed;
     top: 0;
@@ -15,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    max-height: 2rem;
     width: 100%;
   }
 
@@ -23,7 +24,9 @@
     color: $COLOR_PRIMARY;
   }
 
-  // &__loginText {
-  //   color: $COLOR_PRIMARY;
+  // &__logo {
+  //   margin-top: -0.2rem;
   // }
+
+  // &__loginButton {}
 }

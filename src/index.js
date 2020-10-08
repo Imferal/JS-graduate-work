@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import store from './redux/store';
 import App from './components/App/App';
-import './assets/fonts/Fira_Sans/FiraSans-Light.ttf';
 import './index.scss';
 
 let rerender = state => {

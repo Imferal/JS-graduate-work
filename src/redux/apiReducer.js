@@ -3,6 +3,8 @@ import Cookies from 'universal-cookie';
 const FETCH_BEARER_TOKEN = 'FETCH_BEARER_TOKEN';
 const SET_BEARER_TOKEN = 'SET_BEARER_TOKEN';
 const LOAD_COOKIE = 'LOAD_COOKIE';
+const REMOVE_BEARER_TOKEN = 'REMOVE_BEARER_TOKEN';
+
 const cookies = new Cookies ();
 
 const initialState = {
@@ -36,6 +38,11 @@ export default function apiReducer (state = initialState, action) {
       state.COOKIE_ISLOADED = true;
       return state;
     }
+    case REMOVE_BEARER_TOKEN: {
+      cookies.remove ('bearerToken');
+      return state;
+    }
+
     default:
       return state;
   }
@@ -47,3 +54,4 @@ export const setBearerTokenAC = bearerToken => ({
   bearerToken,
 });
 export const loadCookieAC = () => ({type: LOAD_COOKIE});
+export const removeBearerTokenAC = () => ({type: REMOVE_BEARER_TOKEN});
