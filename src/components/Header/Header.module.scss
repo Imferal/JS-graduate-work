@@ -24,9 +24,24 @@
     color: $COLOR_PRIMARY;
   }
 
-  // &__logo {
-  //   margin-top: -0.2rem;
-  // }
+  &__loginButton {
+    background-color: $COLOR_ACTION;
+    border: none;
+    color: $COLOR_DARK;
 
-  // &__loginButton {}
+    line-height: 2rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 7rem;
+
+
+  }
+
+  &__loginText {
+    color: $COLOR_LIGHT;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
 }

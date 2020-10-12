@@ -10,5 +10,11 @@ export default function HeaderAuthorizedContainer (props) {
     props.dispatch (removeBearerTokenAC ());
   };
 
-  return <HeaderAuthorized state={props.state} logout={logout} />;
+  return (
+    <HeaderAuthorized
+      state={props.state}
+      dispatch={props.dispatch}
+      logout={logout}
+    />
+  );
 }

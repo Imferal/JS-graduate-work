@@ -1,0 +1,10 @@
+@import "./../Header/Header.module.scss";
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+
+  &>:not(:last-child) {
+    margin-right: 1rem;
+  }
+}

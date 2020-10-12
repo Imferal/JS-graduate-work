@@ -1,0 +1,7 @@
+@import "./../Header/Header.module.scss";
+
+.header {
+  &__loginText {
+    color: $COLOR_ACTION;
+  }
+}

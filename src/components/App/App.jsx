@@ -4,8 +4,7 @@ import Footer from '../Footer/Footer';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 import Login from '../Login/Login';
 import GalleryContainer from '../Gallery/GalleryContainer';
-import HeaderAuthorizedContainer
-  from '../HeaderAuthorized/HeaderAuthorizedContainer';
+import HeaderAuthorizedContainer from '../Header/HeaderAuthorizedContainer';
 import Api from '../Api/Api';
 import ViewerContainer from '../Viewer/ViewerContainer';
 

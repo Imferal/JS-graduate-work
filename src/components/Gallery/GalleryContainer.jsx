@@ -1,16 +1,10 @@
 import React from 'react';
 import Gallery from './Gallery';
 import s from './Gallery.module.scss';
-import {
-  fetchDataRequestAC,
-  fetchDataSuccessAC,
-  setActivePhotoAC,
-  setJsxAC,
-  unsetJsxAC,
-} from '../../redux/dataReducer';
-import {unsplash} from '../Api/Api';
+import {setActivePhotoAC, setJsxAC} from '../../redux/dataReducer';
 import {Link} from 'react-router-dom';
 import Description from '../_shared/Description';
+import {fetchMoreData} from '../../api/api';
 
 const breakpointColumnsObj = {
   default: 3,
@@ -21,22 +15,6 @@ const breakpointColumnsObj = {
 const GalleryContainer = props => {
   let jsx = [];
   let dataLength = props.state.data.results.length;
-
-  // Загрузить больше
-  const fetchMoreData = dataLength => {
-    if (props.state.data.SERVERDATA_ISLOADED) {
-      console.log ('More Cats is fetching...');
-      props.dispatch (fetchDataRequestAC ());
-      unsplash.search
-        .photos ('cats', dataLength / 10 + 1, 10)
-        .then (res => res.json ())
-        .then (json => {
-          console.log ('More Cats added!');
-          props.dispatch (fetchDataSuccessAC (json));
-          props.dispatch (unsetJsxAC ());
-        });
-    }
-  };
 
   // Конвертируем данные в JSX
   if (

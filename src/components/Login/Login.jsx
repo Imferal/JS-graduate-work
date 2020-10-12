@@ -11,7 +11,7 @@ export default function Login (props) {
           alt="black and white cat lying on brown bamboo chair inside room"
         />
         <h1 className={s.main__greetings}>
-          Котики вас не знают. Пожалуйста, войдите на сайт.
+          Пожалуйста, войдите на сайт.
         </h1>
       </div>
     </main>

@@ -4,7 +4,8 @@ const FETCH_DATA_REQUEST = 'FETCH_DATA_REQUEST';
 const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 const CHANGE_LIKE_STATUS = 'CHANGE_LIKE_STATUS';
 const SET_ACTIVE_PHOTO = 'SET_ACTIVE_PHOTO';
-const LOAD_ACTIVE_PHOTO = 'LOAD_ACTIVE_PHOTO';
+// const LOAD_ACTIVE_PHOTO = 'LOAD_ACTIVE_PHOTO';
+const CHANGE_ACTIVE_PHOTO = 'CHANGE_ACTIVE_PHOTO';
 const SET_JSX = 'SET_JSX';
 const UNSET_JSX = 'UNSET_JSX';
 const cookies = new Cookies ();
@@ -64,37 +65,33 @@ export default function dataReducer (state = initialState, action) {
       // debugger;
       let activePhoto = state.results.find (photo => photo.id === action.id);
       state.ACTIVE_PHOTO = activePhoto;
-      cookies.set ('activePhotoUserLink', activePhoto.user.links.html, {
-        sameSite: 'None',
-        secure: true,
-      });
-      cookies.set ('activePhotoUserName', activePhoto.user.username, {
-        sameSite: 'None',
-        secure: true,
-      });
-      cookies.set ('activePhotoCreated', activePhoto.created_at, {
-        sameSite: 'None',
-        secure: true,
-      });
       cookies.set ('activePhotoId', activePhoto.id, {
-        sameSite: 'None',
-        secure: true,
-      });
-      cookies.set ('activePhotoUrl', activePhoto.urls.full, {
-        sameSite: 'None',
-        secure: true,
-      });
-      cookies.set ('activePhotoDescription', activePhoto.alt_description, {
         sameSite: 'None',
         secure: true,
       });
       return state;
     }
+    // case LOAD_ACTIVE_PHOTO: {
+    //   debugger;
+    //   let id = cookies.get ('activePhotoId');
+    //   let activePhoto = state.results.find (photo => photo.id === id);
+    //   state.ACTIVE_PHOTO = activePhoto;
+    //   return state;
+    // }
 
-    case LOAD_ACTIVE_PHOTO: {
-      let id = cookies.get ('activePhotoId');
-      let activePhoto = state.results.find (photo => photo.id === id);
-      state.ACTIVE_PHOTO = activePhoto;
+
+    case CHANGE_ACTIVE_PHOTO: {
+      // Задаём смещение
+      let activePhoto = state.ACTIVE_PHOTO;
+      let shift = action.direction === 'right' ? 1 : -1;
+      // Вычисляем порядковый номер в массиве для новой фотографии
+      let newIndex = state.results.indexOf (state.ACTIVE_PHOTO) + shift;
+      // Назначаем новую активную фотографию
+      state.ACTIVE_PHOTO = state.results[newIndex];
+      // Если вышли за границы массива - оставляем прежнюю фотографию
+      if (state.ACTIVE_PHOTO === undefined) {
+        state.ACTIVE_PHOTO = activePhoto;
+      }
       return state;
     }
 
@@ -115,4 +112,8 @@ export const changeLikeStatusAC = json => ({
   json,
 });
 export const setActivePhotoAC = id => ({type: SET_ACTIVE_PHOTO, id});
-export const loadActivePhotoAC = () => ({type: LOAD_ACTIVE_PHOTO});
+// export const loadActivePhotoAC = () => ({type: LOAD_ACTIVE_PHOTO});
+export const changeActivePhotoAC = direction => ({
+  type: CHANGE_ACTIVE_PHOTO,
+  direction,
+});
