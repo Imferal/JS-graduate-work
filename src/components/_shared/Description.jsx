@@ -3,13 +3,14 @@ import s from './Description.module.scss';
 import LikeButton from './LikeButton';
 
 const Description = props => {
+  // debugger;
   return (
     <div className={s.item__description}>
-      <a href={props.userhtml}>
+      <a href={props.userhtml} className={s.item__author}>
         {props.username}
       </a>
       <LikeButton photo={props.photo} dispatch={props.dispatch} />
-      <p>
+      <p className={s.item__date}>
         {props.date}
       </p>
     </div>

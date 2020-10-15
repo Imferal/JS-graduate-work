@@ -4,16 +4,23 @@ import {Link} from 'react-router-dom';
 import HeaderCenter from './HeaderCenter';
 
 export default function HeaderAuthorized (props) {
-  // debugger;
   return (
     <header className={s.header__wrapper}>
       <div className={s.header__body}>
-        <div className={s.header__loginText}>
-          Мяу, {props.state.user.username ? props.state.user.username : ''}!
+        <div className={s.header__loginText + ' ' + s.header__left}>
+          Мяу, {props.username ? props.username : ''}!
         </div>
-        <HeaderCenter state={props.state} dispatch={props.dispatch} />
-        <Link className={s.header__loginButton} onClick={props.logout} to={'/'}>
-          Выйти
+        <div className={s.header__center}>
+          <HeaderCenter state={props.state} dispatch={props.dispatch} />
+        </div>
+        <Link
+          className={s.header__loginContainer + ' ' + s.header__right}
+          onClick={props.logout}
+          to={'/'}
+        >
+          <button className={s.header__loginButton}>
+            Выйти
+          </button>
         </Link>
       </div>
     </header>

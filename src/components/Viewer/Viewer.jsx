@@ -1,29 +1,43 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 import Description from '../_shared/Description';
 import s from './Viewer.module.scss';
 
 const Viewer = props => {
   // debugger;
-  return (
-    <div className={s.viewer__wrapper}>
-      <div className={s.viewer__container}>
-        <Description
-          userhtml={props.img.user.links.html}
-          username={props.img.user.username}
-          photo={props.img}
-          dispatch={props.dispatch}
-          date={props.img.created_at.slice (0, 10).replace (/-/g, '.')}
-        />
-        <img
-          className={s.viewer__photo}
-          id={props.img.id}
-          src={props.img.urls.regular}
-          alt={props.img.alt_description}
-        />
-        <span />
+  const history = useHistory ();
+
+  if (props.activePhoto === null) {
+    history.push ('/auth');
+    return <div />;
+  } else {
+    return (
+      <div className={s.viewer__wrapper}>
+        <div className={s.viewer__container}>
+          <div className={s.viewer__description}>
+            <Description
+              userhtml={props.activePhoto.user.links.html}
+              username={props.activePhoto.user.username}
+              photo={props.activePhoto}
+              dispatch={props.dispatch}
+              date={props.activePhoto.created_at
+                .slice (0, 10)
+                .replace (/-/g, '.')}
+            />
+          </div>
+          <div className={s.viewer__cell}>
+            <img
+              className={s.viewer__photo}
+              id={props.activePhoto.id}
+              src={props.activePhoto.urls.regular}
+              alt={props.activePhoto.alt_description}
+            />
+          </div>
+          <span />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Viewer;

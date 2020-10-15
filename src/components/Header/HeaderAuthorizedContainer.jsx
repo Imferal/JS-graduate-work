@@ -1,20 +1,26 @@
-import React from 'react';
+import {connect} from 'react-redux';
+import {unsplash} from '../../api/api';
 import {removeBearerTokenAC} from '../../redux/apiReducer';
-import {unsplash} from '../Api/Api';
 import HeaderAuthorized from './HeaderAuthorized';
 
-export default function HeaderAuthorizedContainer (props) {
-  // Выходим из приложения
-  const logout = () => {
-    unsplash.auth.setBearerToken (null);
-    props.dispatch (removeBearerTokenAC ());
+const mapStateToProps = state => {
+  return {
+    username: state.user.username,
   };
+};
 
-  return (
-    <HeaderAuthorized
-      state={props.state}
-      dispatch={props.dispatch}
-      logout={logout}
-    />
-  );
-}
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => {
+      unsplash.auth.setBearerToken (null);
+      dispatch (removeBearerTokenAC ());
+    },
+  };
+};
+
+const HeaderAuthorizedContainer = connect (
+  mapStateToProps,
+  mapDispatchToProps
+) (HeaderAuthorized);
+
+export default HeaderAuthorizedContainer;

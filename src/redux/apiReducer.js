@@ -17,7 +17,7 @@ export default function apiReducer (state = initialState, action) {
   switch (action.type) {
     case FETCH_BEARER_TOKEN: {
       state.BEARER_TOKEN_ISFETCHING = true;
-      return state;
+      return {...state};
     }
 
     case SET_BEARER_TOKEN: {
@@ -32,19 +32,19 @@ export default function apiReducer (state = initialState, action) {
           secure: true,
         });
       }
-      return state;
+      return {...state};
     }
     case LOAD_COOKIE: {
       state.COOKIE_ISLOADED = true;
-      return state;
+      return {...state};
     }
     case REMOVE_BEARER_TOKEN: {
       cookies.remove ('bearerToken');
-      return state;
+      return {...state};
     }
 
     default:
-      return state;
+      return {...state};
   }
 }
 

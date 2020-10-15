@@ -4,8 +4,10 @@
   &__wrapper {
     background-color: $COLOR_DARK;
     border-bottom: $COLOR_LIGHT;
-    max-height: 3rem;
-    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    height: 2.2rem;
+    padding: 0 1.5rem;
     position: fixed;
     top: 0;
     width: 100%;
@@ -14,9 +16,8 @@
 
   &__body {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    max-height: 2rem;
+    align-items: center;
     width: 100%;
   }
 
@@ -24,24 +25,58 @@
     color: $COLOR_PRIMARY;
   }
 
+  &__loginContainer {
+    height: 100%;
+  }
+
   &__loginButton {
+    height: 100%;
     background-color: $COLOR_ACTION;
     border: none;
     color: $COLOR_DARK;
-
-    line-height: 2rem;
+    cursor: pointer;
+    height: 100%;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     width: 7rem;
 
-
+    &:disabled {
+      background-color: gray;
+    }
   }
 
   &__loginText {
     color: $COLOR_LIGHT;
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 700;
   }
 
+  &__left {
+    width: 33.3333333%;
+  }
+
+  &__center {
+    width: 33.3333333%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__right {
+    width: 33.3333333%;
+    display: flex;
+    justify-content: right;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .header__body {
+    width: 1300px;
+  }
+}
+
+@media screen and (min-width: 460px) {
+  .header__wrapper {
+    height: 3rem;
+  }
 }

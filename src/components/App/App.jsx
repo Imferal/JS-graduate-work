@@ -5,27 +5,19 @@ import {Route, BrowserRouter as Router} from 'react-router-dom';
 import Login from '../Login/Login';
 import GalleryContainer from '../Gallery/GalleryContainer';
 import HeaderAuthorizedContainer from '../Header/HeaderAuthorizedContainer';
-import Api from '../Api/Api';
 import ViewerContainer from '../Viewer/ViewerContainer';
+import AuthorizationContainer from '../Authorization/AuthorizationContainer';
 
 export default function App (props) {
   return (
     <Router>
-      <Api state={props.state} dispatch={props.dispatch} />
+      <AuthorizationContainer />
       <Route
         exact
         path="/"
         render={() => <Header state={props.state} dispatch={props.dispatch} />}
       />
-      <Route
-        path="/auth"
-        render={() => (
-          <HeaderAuthorizedContainer
-            state={props.state}
-            dispatch={props.dispatch}
-          />
-        )}
-      />
+      <Route path="/auth" render={() => <HeaderAuthorizedContainer />} />
       <Route exact path="/" render={() => <Login state={props.state} />} />
       <Route
         path="/auth/viewer/"

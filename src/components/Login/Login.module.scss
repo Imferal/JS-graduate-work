@@ -6,31 +6,41 @@
 }
 
 .main__container {
-
   height: 100vh;
-  width: 1200px;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main__container .main__box {
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 50%;
-  left: 50%;
+
   padding: 10px;
   background-color: $COLOR_LIGHT;
   overflow: hidden;
+  width: max-content;
 }
 
 .main__container .main__box img {
-  max-width: 100%;
+  max-width: 80vw;
 }
 
 .main__greetings {
   font-size: 1rem;
-  line-height: 4rem;
+  padding: 1rem 0;
   text-align: center;
   width: 100%;
+}
+
+@media (orientation: landscape) {
+  .main__container .main__box img {
+    max-height: 60vh;
+  }
+}
+
+@media screen and (min-width: 460px) {
+  .main__container .main__box {
+    margin-top: 1rem;
+  }
 }

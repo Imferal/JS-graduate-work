@@ -13,7 +13,7 @@ export default function userReducer (state = initialState, action) {
   switch (action.type) {
     case FETCH_USER_NAME: {
       state.USERNAME_ISFETCHING = true;
-      return state;
+      return {...state};
     }
     case SET_USER_NAME: {
       state.username = action.name;
@@ -24,14 +24,14 @@ export default function userReducer (state = initialState, action) {
           secure: true,
         });
       }
-      return state;
+      return {...state};
     }
     default:
-      return state;
+      return {...state};
   }
 }
 
-export const fetchUserNameAC = () => ({type: FETCH_USER_NAME});
+export const fetchUserName = () => ({type: FETCH_USER_NAME});
 export const setUserNameAC = name => ({
   type: SET_USER_NAME,
   name,

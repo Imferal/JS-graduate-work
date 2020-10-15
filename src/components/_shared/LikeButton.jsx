@@ -1,7 +1,7 @@
 import React from 'react';
 import {toJson} from 'unsplash-js';
+import {unsplash} from '../../api/api';
 import {changeLikeStatusAC, unsetJsxAC} from '../../redux/dataReducer';
-import {unsplash} from '../Api/Api';
 import s from './LikeButton.module.scss';
 
 const LikeButton = props => {
@@ -9,13 +9,11 @@ const LikeButton = props => {
   const toggleLike = (id, isLiked) => {
     if (isLiked) {
       unsplash.photos.unlikePhoto (id).then (toJson).then (json => {
-        console.log (json);
         props.dispatch (changeLikeStatusAC (json));
         props.dispatch (unsetJsxAC ());
       });
     } else {
       unsplash.photos.likePhoto (id).then (toJson).then (json => {
-        console.log (json);
         props.dispatch (changeLikeStatusAC (json));
         props.dispatch (unsetJsxAC ());
       });

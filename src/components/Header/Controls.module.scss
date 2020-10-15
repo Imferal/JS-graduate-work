@@ -4,7 +4,26 @@
   display: flex;
   justify-content: space-between;
 
+  &__button {
+    background-color: $COLOR_SECONDARY;
+    border: none;
+    border-radius: 2px;
+    color: $COLOR_DARK;
+    cursor: pointer;
+
+    line-height: 1.6rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 7rem;
+  }
+
   &>:not(:last-child) {
     margin-right: 1rem;
+  }
+
+  button:disabled {
+    background-color: gray;
+    cursor: inherit
   }
 }
