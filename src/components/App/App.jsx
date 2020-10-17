@@ -1,10 +1,9 @@
 import React from 'react';
-import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 import Login from '../Login/Login';
 import GalleryContainer from '../Gallery/GalleryContainer';
-import HeaderAuthorizedContainer from '../Header/HeaderAuthorizedContainer';
+import HeaderContainer from '../Header/HeaderContainer';
 import ViewerContainer from '../Viewer/ViewerContainer';
 import AuthorizationContainer from '../Authorization/AuthorizationContainer';
 
@@ -12,12 +11,7 @@ export default function App (props) {
   return (
     <Router>
       <AuthorizationContainer />
-      <Route
-        exact
-        path="/"
-        render={() => <Header state={props.state} dispatch={props.dispatch} />}
-      />
-      <Route path="/auth" render={() => <HeaderAuthorizedContainer />} />
+      <HeaderContainer state={props.state} dispatch={props.dispatch} />
       <Route exact path="/" render={() => <Login state={props.state} />} />
       <Route
         path="/auth/viewer/"

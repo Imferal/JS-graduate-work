@@ -63,9 +63,11 @@ export default function dataReducer (state = initialState, action) {
     case SET_ACTIVE_PHOTO: {
       let activePhoto = state.results.find (photo => photo.id === action.id);
       state.ACTIVE_PHOTO = activePhoto;
+      cookies.remove ('activePhotoId', {path: '/'});
       cookies.set ('activePhotoId', activePhoto.id, {
-        sameSite: 'None',
+        sameSite: 'lax',
         secure: true,
+        path: '/',
       });
       return {...state};
     }

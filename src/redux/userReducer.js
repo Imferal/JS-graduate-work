@@ -20,8 +20,9 @@ export default function userReducer (state = initialState, action) {
       state.USERNAME_ISFETCHING = false;
       if (cookies.get ('user') === null || cookies.get ('user') === undefined) {
         cookies.set ('user', state.username, {
-          sameSite: 'None',
+          sameSite: 'lax',
           secure: true,
+          path: '/',
         });
       }
       return {...state};

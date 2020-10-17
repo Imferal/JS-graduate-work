@@ -6,11 +6,14 @@ import s from './Controls.module.scss';
 export default function Controls (props) {
   // Если фотография первая - отключаем кнопку "назад"
   let isPhotoFirst;
-  let isPhotoLast;
+  // let isPhotoLast;
 
   if (props.results[0]) {
     isPhotoFirst = props.results[0].id === props.activePhotoId;
   }
+
+  // if(props.results)
+
   return (
     <div className={s.controls}>
       <button
@@ -25,7 +28,7 @@ export default function Controls (props) {
       </Link>
       <button
         onClick={() => props.changeSlide ('right')}
-        disabled={isPhotoLast ? 'disabled' : ''}
+        // disabled={isPhotoLast ? 'disabled' : ''}
         className={s.controls__button}
       >
         Вперёд

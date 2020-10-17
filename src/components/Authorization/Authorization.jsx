@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie';
 import {unsplash, authenticationUrl} from '../../api/api';
 import s from './../Gallery/Gallery.module.scss';
 import {Link} from 'react-router-dom';
-import Description from '../_shared/Description';
+import Description from '../_shared/Description/Description';
 
 const cookies = new Cookies ();
 

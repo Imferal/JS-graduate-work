@@ -1,4 +1,4 @@
-@import "./../Header/Header.module.scss";
+@import "./../../Header/Header.module.scss";
 
 .controls {
   display: flex;
@@ -10,8 +10,9 @@
     border-radius: 2px;
     color: $COLOR_DARK;
     cursor: pointer;
+    margin: 0.2rem;
 
-    line-height: 1.6rem;
+    line-height: 1.5rem;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -19,11 +20,25 @@
   }
 
   &>:not(:last-child) {
-    margin-right: 1rem;
+    margin-right: 0.1rem;
+  }
+
+  a {
+    display: flex;
+    text-decoration: none;
   }
 
   button:disabled {
     background-color: gray;
     cursor: inherit
+  }
+}
+
+@media screen and (min-width: 460px) {
+  .controls {
+
+    &>:not(:last-child) {
+      margin-right: 1rem;
+    }
   }
 }

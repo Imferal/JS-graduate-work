@@ -28,8 +28,9 @@ export default function apiReducer (state = initialState, action) {
         cookies.get ('bearerToken') === 'undefined'
       ) {
         cookies.set ('bearerToken', action.bearerToken, {
-          sameSite: 'None',
+          sameSite: 'lax',
           secure: true,
+          path: '/',
         });
       }
       return {...state};
@@ -39,7 +40,9 @@ export default function apiReducer (state = initialState, action) {
       return {...state};
     }
     case REMOVE_BEARER_TOKEN: {
-      cookies.remove ('bearerToken');
+      cookies.remove ('bearerToken', {path: '/'});
+      cookies.remove ('user', {path: '/'});
+      cookies.remove ('activePhotoId', {path: '/'});
       return {...state};
     }
 

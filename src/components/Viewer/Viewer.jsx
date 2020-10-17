@@ -1,10 +1,9 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
-import Description from '../_shared/Description';
+import Description from '../_shared/Description/Description';
 import s from './Viewer.module.scss';
 
 const Viewer = props => {
-  // debugger;
   const history = useHistory ();
 
   if (props.activePhoto === null) {
@@ -25,14 +24,12 @@ const Viewer = props => {
                 .replace (/-/g, '.')}
             />
           </div>
-          <div className={s.viewer__cell}>
-            <img
-              className={s.viewer__photo}
-              id={props.activePhoto.id}
-              src={props.activePhoto.urls.regular}
-              alt={props.activePhoto.alt_description}
-            />
-          </div>
+          <img
+            className={s.viewer__photo}
+            id={props.activePhoto.id}
+            src={props.activePhoto.urls.regular}
+            alt={props.activePhoto.alt_description}
+          />
           <span />
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Description.module.scss';
-import LikeButton from './LikeButton';
+import LikeButton from '../LikeButton/LikeButton';
 
 const Description = props => {
   // debugger;

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Cookies from 'universal-cookie';
-import {changeActivePhotoAC} from '../../redux/dataReducer';
+import {changeActivePhotoAC} from '../../../redux/dataReducer';
 import Controls from './Controls';
 
 const cookies = new Cookies ();

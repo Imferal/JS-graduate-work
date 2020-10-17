@@ -1,7 +1,7 @@
 import React from 'react';
 import {toJson} from 'unsplash-js';
-import {unsplash} from '../../api/api';
-import {changeLikeStatusAC, unsetJsxAC} from '../../redux/dataReducer';
+import {unsplash} from '../../../api/api';
+import {changeLikeStatusAC, unsetJsxAC} from '../../../redux/dataReducer';
 import s from './LikeButton.module.scss';
 
 const LikeButton = props => {

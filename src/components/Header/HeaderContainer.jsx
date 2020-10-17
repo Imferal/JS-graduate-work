@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {unsplash} from '../../api/api';
 import {removeBearerTokenAC} from '../../redux/apiReducer';
-import HeaderAuthorized from './HeaderAuthorized';
+import Header from './Header';
 
 const mapStateToProps = state => {
   return {
@@ -18,9 +18,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const HeaderAuthorizedContainer = connect (
-  mapStateToProps,
-  mapDispatchToProps
-) (HeaderAuthorized);
+const HeaderContainer = connect (mapStateToProps, mapDispatchToProps) (Header);
 
-export default HeaderAuthorizedContainer;
+export default HeaderContainer;
