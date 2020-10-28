@@ -1,18 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-// import {changeActivePhotoAC, setActivePhotoAC} from '../../redux/dataReducer';
 import s from './Controls.module.scss';
 
 export default function Controls (props) {
-  // Если фотография первая - отключаем кнопку "назад"
+  // Проверяем, есть ли загруженные данные, и если есть,
+  // то является ли активное фото первым или последним
+  // Если фотография первая - отключаем кнопку "назад",
+  // если последняя - "вперёд"
   let isPhotoFirst;
-  // let isPhotoLast;
+  let isPhotoLast;
+  let lastPhoto = props.results.length - 1;
 
   if (props.results[0]) {
     isPhotoFirst = props.results[0].id === props.activePhotoId;
   }
 
-  // if(props.results)
+  if (props.results && lastPhoto > 0) {
+    isPhotoLast = props.results[lastPhoto].id === props.activePhotoId;
+  }
 
   return (
     <div className={s.controls}>
@@ -28,7 +33,7 @@ export default function Controls (props) {
       </Link>
       <button
         onClick={() => props.changeSlide ('right')}
-        // disabled={isPhotoLast ? 'disabled' : ''}
+        disabled={isPhotoLast ? 'disabled' : ''}
         className={s.controls__button}
       >
         Вперёд

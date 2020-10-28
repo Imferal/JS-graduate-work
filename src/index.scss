@@ -1,18 +1,13 @@
 @import "./_theme/colors.scss";
 
 @font-face {
-  font-family: 'FiraSans';
+  font-family: 'FiraSansLight';
   src: local('FiraSansLight'), url(./assets/fonts/Fira_Sans/FiraSans-Light.ttf) format('truetype');
 }
 
 @font-face {
-  font-family: 'Geneva';
-  src: local('GenevaRegular'), url(./assets/fonts/Geneva/GenevaRegular.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Geneva';
-  src: local('GenevaBold'), url(./assets/fonts/Geneva/GenevaBold.ttf) format('truetype');
+  font-family: 'FiraSansMedium';
+  src: local('FiraSansMedium'), url(./assets/fonts/Fira_Sans/FiraSans-Medium.ttf) format('truetype');
 }
 
 * {
@@ -23,7 +18,7 @@
 }
 
 body {
-  font-family: 'FiraSans', sans-serif;
+  font-family: 'FiraSansLight', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

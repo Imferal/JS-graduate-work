@@ -1,9 +1,11 @@
 @import "./../../_theme/colors.scss";
 
 .header {
+  font-family: 'FiraSansLight', sans-serif;
+
   &__wrapper {
     background-color: $COLOR_DARK;
-    border-bottom: $COLOR_LIGHT;
+    // border-bottom: 1px solid rgba($COLOR_ACTION, 0.5);
     display: flex;
     justify-content: center;
     min-height: 1.5rem;
@@ -11,7 +13,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 4;
   }
 
   &__body {
@@ -24,7 +26,7 @@
   }
 
   &__body p {
-    color: $COLOR_PRIMARY;
+    color: $COLOR_LIGHT;
   }
 
   &__loginContainer {
@@ -32,7 +34,9 @@
   }
 
   &__loginButton {
+    font-family: 'FiraSansLight', sans-serif;
     height: 100%;
+    font-size: 1.1rem;
     background-color: $COLOR_ACTION;
     border: none;
     color: $COLOR_DARK;
@@ -49,12 +53,12 @@
   }
 
   &__loginText {
-    color: $COLOR_LIGHT;
+    color: $COLOR_FOCUS;
     font-weight: 700;
   }
 
   &__loggedIn {
-    color: $COLOR_ACTION;
+    color: $COLOR_FOCUS;
   }
 
 

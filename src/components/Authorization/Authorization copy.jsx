@@ -13,13 +13,11 @@ export default function Authorization (props) {
   let dataLength = props.state.data.results.length;
   let jsx = [];
 
-  // debugger;
-
   // Если не авторизован и есть куки - автоматически авторизуемся
   if (
     window.location.toString ().indexOf ('/auth') + 1 === 0 &&
     bearerToken &&
-    // bearerToken !== undefined &&
+    bearerToken !== undefined &&
     props.state.api.COOKIE_ISLOADED === false
   ) {
     unsplash.auth.setBearerToken (bearerToken);
@@ -31,6 +29,7 @@ export default function Authorization (props) {
   // Если авторизованы, но нет Bearer Token в unsplash и куках
   if (
     window.location.toString ().indexOf ('/auth') + 1 !== 0 &&
+    unsplash._bearerToken === null &&
     (bearerToken === null ||
       bearerToken === undefined ||
       bearerToken === 'undefined') &&
@@ -50,6 +49,7 @@ export default function Authorization (props) {
   // Если авторизованы, нет Bearer Token в unsplash, но есть в куках
   if (
     window.location.toString ().indexOf ('/auth') + 1 !== 0 &&
+    unsplash._bearerToken === null &&
     bearerToken !== null &&
     bearerToken !== undefined &&
     bearerToken !== 'undefined' &&
