@@ -1,18 +1,11 @@
-import Cookies from 'universal-cookie';
-
 const FETCH_DATA_REQUEST = 'FETCH_DATA_REQUEST';
 const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 const CHANGE_LIKE_STATUS = 'CHANGE_LIKE_STATUS';
 const SET_ACTIVE_PHOTO = 'SET_ACTIVE_PHOTO';
 const CHANGE_ACTIVE_PHOTO = 'CHANGE_ACTIVE_PHOTO';
-const SET_JSX = 'SET_JSX';
-const UNSET_JSX = 'UNSET_JSX';
-const cookies = new Cookies ();
 
 const initialState = {
-  jsx: [],
   results: [],
-  JSX_ISLOADED: false,
   SERVERDATA_ISFETCHING: false,
   SERVERDATA_ISLOADED: null,
   ACTIVE_PHOTO: null,
@@ -35,20 +28,7 @@ export default function dataReducer (state = initialState, action) {
       state.results.push (...action.json.results);
       return {...state, results: [...state.results]};
     }
-    // Сбрасываем флаг загрузки JSX
-    case UNSET_JSX: {
-      console.log ('JSX_ISLOADED = false');
-      state.JSX_ISLOADED = false;
-      return {...state};
-    }
-    // Сохраняем в стейт готовый JSX с фотками
-    case SET_JSX: {
-      console.log ('JSX added.');
-      state.jsx = action.jsx;
-      state.JSX_ISLOADED = true;
-      return {...state, jsx: [...state.jsx]};
-    }
-    // // Сохраняем изменённую информацию о фото в стейт
+    // Сохраняем изменённую информацию о фото в стейт
     case CHANGE_LIKE_STATUS: {
       state.results = state.results.map (photo => {
         if (photo.id === action.json.photo.id) {
@@ -63,12 +43,6 @@ export default function dataReducer (state = initialState, action) {
     case SET_ACTIVE_PHOTO: {
       let activePhoto = state.results.find (photo => photo.id === action.id);
       state.ACTIVE_PHOTO = activePhoto;
-      cookies.remove ('activePhotoId', {path: '/'});
-      cookies.set ('activePhotoId', activePhoto.id, {
-        sameSite: 'lax',
-        secure: true,
-        path: '/',
-      });
       return {...state};
     }
 
@@ -92,27 +66,16 @@ export default function dataReducer (state = initialState, action) {
   }
 }
 
-// export const fetchDataSuccessAC = json => ({
-//   type: FETCH_DATA_SUCCESS,
-//   json,
-// });
-
 export const fetchDataRequestAC = () => ({type: FETCH_DATA_REQUEST});
 export const fetchDataSuccess = json => ({
   type: FETCH_DATA_SUCCESS,
   json,
 });
-export const setJsxAC = jsx => ({type: SET_JSX, jsx});
-
-export const unsetJsxAC = () => ({type: UNSET_JSX});
-
 export const changeLikeStatusAC = json => ({
   type: CHANGE_LIKE_STATUS,
   json,
 });
-
 export const setActivePhotoAC = id => ({type: SET_ACTIVE_PHOTO, id});
-
 export const changeActivePhotoAC = direction => ({
   type: CHANGE_ACTIVE_PHOTO,
   direction,

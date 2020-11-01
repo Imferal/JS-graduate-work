@@ -4,18 +4,17 @@ import {
   loadCookieAC,
   setBearerTokenAC,
 } from '../../redux/apiReducer';
-import {
-  fetchDataRequestAC,
-  fetchDataSuccess,
-  setActivePhotoAC,
-  setJsxAC,
-} from '../../redux/dataReducer';
+import {fetchDataRequestAC, fetchDataSuccess} from '../../redux/dataReducer';
 import {fetchUserName, setUserNameAC} from '../../redux/userReducer';
-import Authorization from './Authorization';
+import Auth from './Auth';
 
 const mapStateToProps = state => {
   return {
-    state: state,
+    tokenIsFetching: state.api.BEARER_TOKEN_ISFETCHING,
+    tokenIsLoaded: state.api.BEARER_TOKEN_ISLOADED,
+    dataIsFetching: state.data.SERVERDATA_ISFETCHING,
+    dataIsLoaded: state.data.SERVERDATA_ISLOADED,
+    cookieIsLoaded: state.api.COOKIE_ISLOADED,
   };
 };
 
@@ -23,9 +22,6 @@ const mapDispatchToProps = dispatch => {
   return {
     setBearerToken: bearerToken => {
       dispatch (setBearerTokenAC (bearerToken));
-    },
-    setJsx: jsx => {
-      dispatch (setJsxAC (jsx));
     },
     loadCookie: () => {
       dispatch (loadCookieAC ());
@@ -36,9 +32,6 @@ const mapDispatchToProps = dispatch => {
     setUserName: json => {
       dispatch (setUserNameAC (json));
     },
-    setActivePhoto: id => {
-      dispatch (setActivePhotoAC (id));
-    },
     fetchDataRequest: () => {
       dispatch (fetchDataRequestAC ());
     },
@@ -48,12 +41,9 @@ const mapDispatchToProps = dispatch => {
     fetchBearerToken: () => {
       dispatch (fetchBearerTokenAC ());
     },
-    dispatch: dispatch,
   };
 };
 
-const AuthorizationContainer = connect (mapStateToProps, mapDispatchToProps) (
-  Authorization
-);
+const AuthContainer = connect (mapStateToProps, mapDispatchToProps) (Auth);
 
-export default AuthorizationContainer;
+export default AuthContainer;

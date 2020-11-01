@@ -1,6 +1,8 @@
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import Masonry from 'react-masonry-css';
+import {Link} from 'react-router-dom';
+import Description from '../_shared/Description/Description';
 import s from './Gallery.module.scss';
 
 const Gallery = props => {
@@ -9,6 +11,7 @@ const Gallery = props => {
     960: 2,
     640: 1,
   };
+
   return (
     <main className={s.main}>
       <button
@@ -29,7 +32,32 @@ const Gallery = props => {
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
-          {props.jsx}
+
+          {props.results.map ((e, i) => (
+            <div className={s.main__item} key={i}>
+              <Description
+                userhtml={e.user.links.html}
+                username={e.user.username}
+                photo={e}
+                dispatch={props.dispatch}
+                date={e.created_at.slice (0, 10).replace (/-/g, '.')}
+              />
+
+              <Link
+                onClick={e => props.setActivePhoto (e.target.id)}
+                to={`/auth/viewer/id${e.id}`}
+              >
+                <img
+                  id={e.id}
+                  src={e.urls.small}
+                  alt={e.alt_description}
+                  key={i}
+                  className={s.item__img}
+                />
+              </Link>
+            </div>
+          ))}
+
         </Masonry>
       </InfiniteScroll>
     </main>

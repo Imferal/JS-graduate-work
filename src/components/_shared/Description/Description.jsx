@@ -3,7 +3,6 @@ import s from './Description.module.scss';
 import LikeButton from '../LikeButton/LikeButton';
 
 const Description = props => {
-  // debugger;
   return (
     <div className={s.item__description}>
       <a href={props.userhtml} className={s.item__author}>

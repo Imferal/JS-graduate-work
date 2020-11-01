@@ -5,7 +5,7 @@ import s from './Viewer.module.scss';
 
 const Viewer = props => {
   const history = useHistory ();
-
+  // debugger;
   if (props.activePhoto === null) {
     history.push ('/auth');
     return <div />;
@@ -29,6 +29,7 @@ const Viewer = props => {
             id={props.activePhoto.id}
             src={props.activePhoto.urls.regular}
             alt={props.activePhoto.alt_description}
+            onClick={() => window.open (props.activePhoto.urls.full)}
           />
           <span />
         </div>
