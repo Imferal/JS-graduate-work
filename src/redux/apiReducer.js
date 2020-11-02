@@ -29,7 +29,7 @@ export default function apiReducer (state = initialState, action) {
       ) {
         cookies.set ('bearerToken', action.bearerToken, {
           sameSite: 'lax',
-          secure: true,
+          secure: false,
           path: '/',
         });
       }

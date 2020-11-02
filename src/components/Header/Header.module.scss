@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     min-height: 1.5rem;
-    padding: 0 1.5rem;
+    // padding: 0 1.5rem;
     position: fixed;
     top: 0;
     width: 100%;
@@ -70,6 +70,7 @@
   &__left {
     width: 33.3333333%;
     order: 1;
+    padding-left: 1.5rem;
   }
 
   &__center {
@@ -88,6 +89,7 @@
     justify-content: flex-end;
     text-decoration: none;
     order: 2;
+    padding-right: 1.5rem;
   }
 }
 

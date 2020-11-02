@@ -11,21 +11,10 @@ export default function App (props) {
   return (
     <Router>
       <AuthContainer />
-      <HeaderContainer state={props.state} dispatch={props.dispatch} />
-      <Route exact path="/" render={() => <Login state={props.state} />} />
-      <Route
-        path="/auth/viewer/"
-        render={() => (
-          <ViewerContainer state={props.state} dispatch={props.dispatch} />
-        )}
-      />
-      <Route
-        exact
-        path="/auth"
-        render={() => (
-          <GalleryContainer state={props.state} dispatch={props.dispatch} />
-        )}
-      />
+      <HeaderContainer />
+      <Route exact path="/" component={Login} />
+      <Route path="/auth/viewer/:id" component={ViewerContainer} />
+      <Route exact path="/auth" component={GalleryContainer} />
       <Footer />
     </Router>
   );

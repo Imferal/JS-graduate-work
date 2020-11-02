@@ -3,6 +3,7 @@
 .controls {
   display: flex;
   justify-content: space-between;
+  padding: 0.5rem;
 
   &__button {
     font-family: 'FiraSansMedium', sans-serif;
@@ -41,5 +42,11 @@
     &>:not(:last-child) {
       margin-right: 1rem;
     }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .controls {
+    padding: 0;
   }
 }

@@ -136,9 +136,10 @@
         }
       }
     }
-
   }
 
+
+  /////
   &.liked {
 
     .text {
@@ -155,12 +156,11 @@
   }
 }
 
-// @keyframes confetti {
-//   from {
-//     transform: translate(0, 0);
-//     opacity: 1;
-//   }
-// }
+@media (hover: none) {
+  .paws {
+    display: none;
+  }
+}
 
 @keyframes paw {
   0% {
