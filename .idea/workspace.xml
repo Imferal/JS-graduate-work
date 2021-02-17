@@ -2,37 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6e79ce8-3a62-421a-80c9-fc587a9efff7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/KotoPhoto.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_theme/colors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/_theme/colors.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/Auth.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/AuthContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Gallery/Gallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Gallery/Gallery.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Gallery/GalleryContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Gallery/GalleryContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Viewer/Viewer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Viewer/Viewer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Viewer/Viewer.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Viewer/Viewer.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Viewer/ViewerContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Viewer/ViewerContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/_shared/Controls/Controls.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/_shared/Controls/Controls.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/_shared/Controls/ControlsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/_shared/Controls/ControlsContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/_shared/LikeButton/LikeButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/_shared/LikeButton/LikeButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/apiReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/apiReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/dataReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/dataReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/userReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vsconfig.code-workspace" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +43,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1613592238867</updated>
-      <workItem from="1613592243883" duration="615000" />
+      <workItem from="1613592243883" duration="1108000" />
     </task>
     <servers />
   </component>
