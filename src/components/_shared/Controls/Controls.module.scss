@@ -1,0 +1,52 @@
+@import "./../../Header/Header.module.scss";
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+
+  &__button {
+    font-family: 'FiraSansMedium', sans-serif;
+    background-color: $COLOR_FOCUS;
+    border: none;
+    border-radius: 2px;
+    color: $COLOR_DARK;
+    cursor: pointer;
+    margin: 0.2rem;
+
+    line-height: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 7rem;
+  }
+
+  &>:not(:last-child) {
+    margin-right: 0.1rem;
+  }
+
+  a {
+    display: flex;
+    text-decoration: none;
+  }
+
+  button:disabled {
+    background-color: gray;
+    cursor: inherit
+  }
+}
+
+@media screen and (min-width: 460px) {
+  .controls {
+
+    &>:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .controls {
+    padding: 0;
+  }
+}

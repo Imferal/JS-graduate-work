@@ -1,0 +1,47 @@
+@import "./../../_theme/colors.scss";
+
+.main {
+  position: relative;
+  width: 100%;
+}
+
+.main__container {
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__container .main__box {
+
+  padding: 10px;
+  background-color: $COLOR_LIGHT;
+  overflow: hidden;
+  width: max-content;
+}
+
+.main__container .main__box img {
+  max-width: 80vw;
+}
+
+.main__greetings {
+  font-family: 'FiraSansLight', serif;
+  font-size: 1rem;
+  padding: 1rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+@media (orientation: landscape) {
+  .main__container .main__box img {
+    max-height: 60vh;
+  }
+}
+
+@media screen and (min-width: 460px) {
+  .main__container .main__box {
+    margin-top: 1rem;
+  }
+}

@@ -1,0 +1,51 @@
+@import "./_theme/colors.scss";
+
+@font-face {
+  font-family: 'FiraSansLight';
+  src: local('FiraSansLight'), url(./assets/fonts/FiraSans-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'FiraSansMedium';
+  src: local('FiraSansMedium'), url(./assets/fonts/FiraSans-Medium.ttf) format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+body {
+  font-family: 'FiraSansLight', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.infinite-scroll-component__outerdiv {
+  display: flex;
+  justify-content: center;
+}
+
+.my-masonry-grid {
+  display: flex;
+  margin-left: -1rem;
+  padding: 0 1rem;
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 1rem;
+  background-clip: padding-box;
+}
+
+.my-masonry-grid_column>div {
+  margin: 1rem auto;
+}
+
+@media screen and (min-width: 460px) {
+  * {
+    font-size: 14px;
+  }
+}

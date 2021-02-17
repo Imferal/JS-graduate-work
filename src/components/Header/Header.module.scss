@@ -1,0 +1,124 @@
+@import "./../../_theme/colors.scss";
+
+.header {
+  font-family: 'FiraSansLight', sans-serif;
+
+  &__wrapper {
+    background-color: $COLOR_DARK;
+    // border-bottom: 1px solid rgba($COLOR_ACTION, 0.5);
+    display: flex;
+    justify-content: center;
+    min-height: 1.5rem;
+    // padding: 0 1.5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    height: 3rem;
+  }
+
+  &__body p {
+    color: $COLOR_LIGHT;
+  }
+
+  &__loginContainer {
+    height: 100%;
+  }
+
+  &__loginButton {
+    position: relative;
+    font-family: 'FiraSansLight', sans-serif;
+    height: 100%;
+    font-size: 1.1rem;
+    background-color: $COLOR_ACTION;
+    border: none;
+    color: $COLOR_DARK;
+    cursor: pointer;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 7rem;
+
+    &:hover {
+      background-color: $COLOR_ACTION_HOVER;
+    }
+
+    &:disabled {
+      background-color: gray;
+    }
+  }
+
+  &__loginText {
+    color: $COLOR_FOCUS;
+    font-weight: 700;
+  }
+
+  &__loggedIn {
+    color: $COLOR_FOCUS;
+  }
+
+
+  &__left {
+    width: 33.3333333%;
+    order: 1;
+    padding-left: 1.5rem;
+  }
+
+  &__center {
+    width: 33.3333333%;
+    display: flex;
+    justify-content: center;
+    order: 3;
+    width: 100vw;
+    flex-shrink: 0;
+    background-color: $COLOR_DARK;
+  }
+
+  &__right {
+    width: 33.3333333%;
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+    order: 2;
+    padding-right: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .header__body {
+    width: 1300px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .header {
+    //     &__wrapper {
+    //       height: 5rem;
+    //     }
+
+    &__center {
+      order: 1;
+      width: 0;
+      height: 2.2rem;
+    }
+
+    //     &__body {
+    //       flex-wrap: wrap;
+    //     }
+  }
+}
+
+// @media screen and (min-width: 620px) {
+//   .header__wrapper {
+//     height: 3rem;
+//   }
+// }

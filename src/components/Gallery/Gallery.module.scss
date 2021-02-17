@@ -1,0 +1,57 @@
+@import "./../../_theme/colors.scss";
+
+.main {
+  margin: 3rem auto 3rem;
+  background-color: $COLOR_BG;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &__body {
+
+    width: 100%;
+  }
+
+  &__item {
+    position: relative;
+    border-radius: 3px;
+    background-color: $COLOR_LIGHT;
+    border: 1px solid $COLOR_DARK;
+    padding: 0 1rem 1rem;
+  }
+
+  &__moreButton {
+    position: fixed;
+    display: block;
+    background: $COLOR_ACTION;
+    color: rgba($COLOR_LIGHT, 0.9);
+    font-weight: bold;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 0px 0px 5px rgba($COLOR_ACTION, 0.4);
+    border: solid 2px rgba($COLOR_FOCUS, 0.47);
+    transition: 0.4s;
+    top: 4.5rem;
+    left: 1.5rem;
+    cursor: pointer;
+    z-index: 5;
+
+    &:hover {
+      border-color: rgba($COLOR_LIGHT, 0.2);
+      box-shadow: 0px 0px 0px 8px rgba($COLOR_ACTION, 0.4);
+    }
+  }
+}
+
+.item__img {
+  width: 100%;
+  width: -moz-available;
+}
+
+@media screen and (min-width: 1320px) {
+  .main__body {
+    width: 1300px;
+  }
+}
