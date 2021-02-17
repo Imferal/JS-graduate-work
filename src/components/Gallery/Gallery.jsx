@@ -14,6 +14,7 @@ const Gallery = props => {
 
   return (
     <main className={s.main}>
+<<<<<<< HEAD
       {/* <button
         className={s.main__moreButton}
         onClick={() =>
@@ -21,6 +22,15 @@ const Gallery = props => {
       >
         Ещё!
       </button> */}
+=======
+      <button
+        className={s.main__moreButton}
+        onClick={() =>
+          props.fetchMoreData (props.dataLength, props.dataIsLoaded)}
+      >
+        Ещё!
+      </button>
+>>>>>>> dd7d44a6cbe8a1bbf88e54d95c7510ae013d6599
       <InfiniteScroll
         className={s.main__body}
         loadMore={() =>

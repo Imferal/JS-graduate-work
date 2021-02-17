@@ -1,7 +1,11 @@
 import Gallery from './Gallery';
 import {fetchMoreData} from '../../api/api';
 import {connect} from 'react-redux';
+<<<<<<< HEAD
 import {setActivePhoto} from '../../redux/dataReducer';
+=======
+import {setActivePhotoAC} from '../../redux/dataReducer';
+>>>>>>> dd7d44a6cbe8a1bbf88e54d95c7510ae013d6599
 
 const mapStateToProps = state => {
   return {
@@ -9,7 +13,10 @@ const mapStateToProps = state => {
     dataIsFetching: state.data.SERVERDATA_ISFETCHING,
     dataIsLoaded: state.data.SERVERDATA_ISLOADED,
     results: state.data.results,
+<<<<<<< HEAD
     activePhoto: state.data.ACTIVE_PHOTO,
+=======
+>>>>>>> dd7d44a6cbe8a1bbf88e54d95c7510ae013d6599
   };
 };
 
@@ -18,7 +25,11 @@ const mapDispatchToProps = dispatch => {
     dispatch: dispatch,
     fetchMoreData: fetchMoreData,
     setActivePhoto: id => {
+<<<<<<< HEAD
       dispatch (setActivePhoto (id));
+=======
+      dispatch (setActivePhotoAC (id));
+>>>>>>> dd7d44a6cbe8a1bbf88e54d95c7510ae013d6599
     },
   };
 };

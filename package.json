@@ -2,7 +2,10 @@
   "name": "js-graduate-work",
   "version": "0.1.0",
   "private": true,
+<<<<<<< HEAD
   "homepage": "/cats/",
+=======
+>>>>>>> dd7d44a6cbe8a1bbf88e54d95c7510ae013d6599
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -17,6 +20,10 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
+<<<<<<< HEAD
+=======
+    "universal-cookie": "^4.0.3",
+>>>>>>> dd7d44a6cbe8a1bbf88e54d95c7510ae013d6599
     "unsplash-js": "^6.0.0"
   },
   "scripts": {
@@ -40,4 +47,8 @@
       "last 1 safari version"
     ]
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dd7d44a6cbe8a1bbf88e54d95c7510ae013d6599
