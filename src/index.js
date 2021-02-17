@@ -26,10 +26,4 @@ store.subscribe (() => {
   rerender (state);
 });
 
-<<<<<<< HEAD
-=======
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
->>>>>>> dd7d44a6cbe8a1bbf88e54d95c7510ae013d6599
 serviceWorker.register ();
