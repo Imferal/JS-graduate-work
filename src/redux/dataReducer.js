@@ -1,40 +1,45 @@
+const RESTORE_ACTIVE_PHOTO = 'RESTORE_ACTIVE_PHOTO';
+const CHANGE_ACTIVE_PHOTO = 'CHANGE_ACTIVE_PHOTO';
+const RESTORE_PHOTOS_DATA = 'RESTORE_PHOTOS_DATA';
 const FETCH_DATA_REQUEST = 'FETCH_DATA_REQUEST';
 const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 const CHANGE_LIKE_STATUS = 'CHANGE_LIKE_STATUS';
 const SET_ACTIVE_PHOTO = 'SET_ACTIVE_PHOTO';
-const CHANGE_ACTIVE_PHOTO = 'CHANGE_ACTIVE_PHOTO';
-const RESTORE_ACTIVE_PHOTO = 'RESTORE_ACTIVE_PHOTO';
-const RESTORE_PHOTOS_DATA = 'RESTORE_PHOTOS_DATA';
 
 const initialState = {
   results: [],
-  SERVERDATA_ISFETCHING: false,
-  SERVERDATA_ISLOADED: false,
-  SERVERDATA_ISRESTORED: false,
+  DATA_IS_FETCHING: false,
+  DATA_IS_LOADED: false,
+  DATA_IS_RESTORED: false,
   ACTIVE_PHOTO: null,
-  ACTIVE_PHOTO_ISRESTORED: false,
+  ACTIVE_PHOTO_IS_RESTORED: false,
 };
 
-export default function dataReducer (state = initialState, action) {
+export default function dataReducer(state = initialState, action) {
   switch (action.type) {
     // Ожидаем загрузку фотографий с сервера
     case FETCH_DATA_REQUEST: {
-      state.SERVERDATA_ISLOADED = false;
-      state.SERVERDATA_ISFETCHING = true;
-      return {...state};
+
+      return {
+        ...state,
+        DATA_IS_LOADED: false,
+        DATA_IS_FETCHING: true,
+      };
     }
     // Данные о фотографиях получены, сохраняем их в стейт и локальное хранилище
     case FETCH_DATA_SUCCESS: {
-      state.SERVERDATA_ISLOADED = true;
-      state.SERVERDATA_ISFETCHING = false;
-      state.results.push (...action.json.results);
-
-      localStorage.setItem ('photos', JSON.stringify (state.results));
-      return {...state, results: [...state.results]};
+      localStorage.setItem('photos', JSON.stringify(state.results));
+      return {
+        ...state,
+        DATA_IS_LOADED: true,
+        DATA_IS_FETCHING: false,
+        results: [...state.results, [...action.json.results]]
+      }
     }
+
     // Сохраняем изменённую информацию о фото в стейт
     case CHANGE_LIKE_STATUS: {
-      state.results = state.results.map (photo => {
+      state.results = state.results.map(photo => {
         if (photo.id === action.json.photo.id) {
           photo.liked_by_user = action.json.photo.liked_by_user;
           photo.likes = action.json.photo.likes;
@@ -45,9 +50,9 @@ export default function dataReducer (state = initialState, action) {
     }
     // Сохраняем данные выбранной фотографии
     case SET_ACTIVE_PHOTO: {
-      let activePhoto = state.results.find (photo => photo.id === action.id);
+      let activePhoto = state.results.find(photo => photo.id === action.id);
       state.ACTIVE_PHOTO = activePhoto;
-      localStorage.setItem ('activePhoto', JSON.stringify (activePhoto));
+      localStorage.setItem('activePhoto', JSON.stringify(activePhoto));
       return {...state};
     }
 
@@ -56,11 +61,11 @@ export default function dataReducer (state = initialState, action) {
       let activePhoto = state.ACTIVE_PHOTO;
       let shift = action.direction === 'right' ? 1 : -1;
       // Находим ссылку на активную фотографию внутри массива всех фотографий
-      let activePhotoLink = state.results.find (
+      let activePhotoLink = state.results.find(
         item => item.id === state.ACTIVE_PHOTO.id
       );
       // Вычисляем порядковый номер в массиве для новой фотографии
-      let newIndex = state.results.indexOf (activePhotoLink) + shift;
+      let newIndex = state.results.indexOf(activePhotoLink) + shift;
       // Назначаем новую активную фотографию
       state.ACTIVE_PHOTO = state.results[newIndex];
       // Если вышли за границы массива - оставляем прежнюю фотографию
@@ -68,25 +73,25 @@ export default function dataReducer (state = initialState, action) {
         state.ACTIVE_PHOTO = activePhoto;
       }
       // Меняем URL
-      window.history.pushState (
+      window.history.pushState(
         {photo: state.ACTIVE_PHOTO.id},
         'photo id ' + state.ACTIVE_PHOTO.id,
         '/cats/auth/viewer/id' + state.ACTIVE_PHOTO.id
       );
-      localStorage.setItem ('activePhoto', JSON.stringify (state.ACTIVE_PHOTO));
+      localStorage.setItem('activePhoto', JSON.stringify(state.ACTIVE_PHOTO));
       return {...state};
     }
 
     case RESTORE_ACTIVE_PHOTO: {
-      state.ACTIVE_PHOTO = JSON.parse (localStorage.getItem ('activePhoto'));
+      state.ACTIVE_PHOTO = JSON.parse(localStorage.getItem('activePhoto'));
       state.ACTIVE_PHOTO_ISRESTORED = true;
       return {...state};
     }
 
     case RESTORE_PHOTOS_DATA: {
-      state.results = JSON.parse (localStorage.getItem ('photos'));
-      state.SERVERDATA_ISLOADED = true;
-      state.SERVERDATA_ISRESTORED = true;
+      state.results = JSON.parse(localStorage.getItem('photos'));
+      state.SERVERDATA_IS_LOADED = true;
+      state.SERVERDATA_IS_RESTORED = true;
       return {...state, results: [...state.results]};
     }
 

@@ -3,32 +3,36 @@ const SET_BEARER_TOKEN = 'SET_BEARER_TOKEN';
 const REMOVE_BEARER_TOKEN = 'REMOVE_BEARER_TOKEN';
 
 const initialState = {
-  BEARER_TOKEN_ISFETCHING: false,
-  BEARER_TOKEN_ISLOADED: false,
+  BEARER_TOKEN_IS_FETCHING: false,
+  BEARER_TOKEN_IS_LOADED: false,
 };
 
 export default function apiReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_BEARER_TOKEN: {
-      state.BEARER_TOKEN_ISFETCHING = true;
-      state.BEARER_TOKEN_ISLOADED = false;
-      return { ...state };
+      return {
+        ...state,
+        BEARER_TOKEN_IS_FETCHING : true,
+        BEARER_TOKEN_IS_LOADED : false
+      };
     }
 
     case SET_BEARER_TOKEN: {
-      state.BEARER_TOKEN_ISFETCHING = false;
-      state.BEARER_TOKEN_ISLOADED = true;
       localStorage.setItem('bearerToken', action.bearerToken);
-      return { ...state };
+      return {
+        ...state,
+        BEARER_TOKEN_IS_FETCHING : false,
+        BEARER_TOKEN_IS_LOADED : true
+      };
     }
 
     case REMOVE_BEARER_TOKEN: {
       localStorage.removeItem('bearerToken');
-      return { ...state };
+      return state;
     }
 
     default:
-      return { ...state };
+      return state;
   }
 }
 

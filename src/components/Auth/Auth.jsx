@@ -3,7 +3,7 @@ import {toJson} from 'unsplash-js';
 import {unsplash} from '../../api/api';
 
 export default function Auth (props) {
-  // Подгружаем токен из localStaorage
+  // Подгружаем токен из localStorage
   let bearerToken = localStorage.getItem ('bearerToken');
 
   // Подгружаем данные о фотографиях
